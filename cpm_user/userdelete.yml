@@ -1,0 +1,30 @@
+# ansible-playbook ./userdelete.yml -e user_name=superABC
+- name: Delete Exiting User
+  connection: local
+  hosts: wti_pdu
+  gather_facts: false
+
+  vars_prompt:
+  - name: "user_name"
+    prompt: "Enter Username"
+    private: no
+
+  tasks:
+  - set_fact: use_https=True
+    when: use_https is undefined
+
+  - name: run Delete Exiting User
+#   no_log: true
+    cpm_user:
+      cpm_action: "deleteuser"
+      cpm_url: "{{ansible_host}}"
+      cpm_username: "{{ansible_user}}"
+      cpm_password: "{{ansible_pw}}"
+      user_name: "{{user_name}}"  # pass as -e user_name=sammy on the commandline
+      use_https: "{{use_https}}"
+      validate_certs: false
+
+    register: testout
+  - name: dump test output
+    debug:
+      msg: "{{ testout['data'] }}"

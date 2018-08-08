@@ -1,0 +1,35 @@
+# ansible-playbook ./useredit.yml -e user_name=superABC -e user_pass=notime
+- name: Edit Existing User
+  connection: local
+  hosts: wti_pdu
+  gather_facts: false
+
+  vars_prompt:
+  - name: "user_name"
+    prompt: "Enter Username"
+    private: no
+  - name: "user_pass"
+    prompt: "Enter Password"
+
+  tasks:
+  - set_fact: use_https=True
+    when: use_https is undefined
+
+  - name: run Edit Existing User
+#   no_log: true
+    cpm_user:
+      cpm_action: "edituser"
+      cpm_url: "{{ansible_host}}"
+      cpm_username: "{{ansible_user}}"
+      cpm_password: "{{ansible_pw}}"
+#      user_name: "super12ab6"     # hard coded
+      user_name: "{{user_name}}"  # pass as -e user_name=sammy on the commandline
+      user_pass: "{{user_pass}}"  # pass as -e user_pass=sammy on the commandline
+#      user_accesslevel: 1
+      use_https: "{{use_https}}"
+      validate_certs: false
+
+    register: testout
+  - name: dump test output
+    debug:
+      msg: "{{ testout['data'] }}"
