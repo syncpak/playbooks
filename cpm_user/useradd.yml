@@ -27,7 +27,15 @@
         cpm_password: "{{ansible_pw}}"
         user_name: "{{user_name}}"  # pass as -e user_name=sammy on the commandline
         user_pass: "{{user_pass}}"
-        user_accesslevel: 3
+        user_accesslevel: 1
+        user_accessserial: 0
+        user_accessapi: 1
+        user_accessweb: 0
+        user_accessoutbound: 1
+        user_accessssh: 1
+        user_portaccess: "10001110"
+        user_plugaccess: "11110000"
+        user_callbackphone: "9495551212"
         use_https: "{{use_https}}"
         validate_certs: "{{validate_certs}}"
 
