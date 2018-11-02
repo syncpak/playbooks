@@ -38,4 +38,3 @@ Works with the WTI cmp_user module included in Ansible 2.7 (and above) to get/se
 ### NOTES
 cpm_plugconfig, cpm_plugcontrol, cpm_ports are currently in review and are not included with the release Ansible 2.7.x
 
-
