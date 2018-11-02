@@ -10,12 +10,13 @@
 
   - name: run Get Plug Parameters
 #   no_log: true
-    cpm_plugs:
-      cpm_action: "getplug"
+    cpm_plugcontrol:
+      cpm_action: "getplugcontrol"
       cpm_url: "{{ansible_host}}"
       cpm_username: "{{ansible_user}}"
       cpm_password: "{{ansible_pw}}"
-      plug_id: "ALL"
+#      plug_id: "ALL"
+      plug_id: "1,3,8"
       use_https: "{{use_https}}"
       validate_certs: "{{validate_certs}}"
 
