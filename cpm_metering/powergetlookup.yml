@@ -1,7 +1,7 @@
 ---
-# ansible-playbook ./getverlookup.yml
+# ansible-playbook ./powergetlookup.yml
 - name: Get Device Power numbers
-  hosts: wti_combo
+  hosts: wti_pdu
   connection: local
   gather_facts: False
 

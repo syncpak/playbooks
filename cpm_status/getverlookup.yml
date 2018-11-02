@@ -1,7 +1,7 @@
 ---
 # ansible-playbook ./getverlookup.yml
 - name: Get Device Firmware version
-  hosts: wti_pdu wti_demo wti_combo
+  hosts: wti_pdu
   connection: local
   gather_facts: False
 

@@ -1,7 +1,7 @@
 ---
 # ansible-playbook ./getstatuslookup.yml
 - name: Get Device Status
-  hosts: wti_combo, wti_pdu, wti_demo
+  hosts: wti_pdu
   connection: local
   gather_facts: False
 

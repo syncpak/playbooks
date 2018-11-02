@@ -1,7 +1,7 @@
 ---
 # ansible-playbook ./getalarmslookup.yml
 - name: Get Device Alarm Status
-  hosts: wti_demo
+  hosts: wti_pdu
   connection: local
   gather_facts: False
 

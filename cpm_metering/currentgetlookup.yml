@@ -1,5 +1,5 @@
 ---
-# ansible-playbook ./getverlookup.yml
+# ansible-playbook ./currentgetlookup.yml
 - name: Get Device Current numbers
   hosts: wti_pdu
   connection: local

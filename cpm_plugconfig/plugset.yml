@@ -17,9 +17,8 @@
         cpm_url: "{{ansible_host}}"
         cpm_username: "{{ansible_user}}"
         cpm_password: "{{ansible_pw}}"
-        plug_id: "2,3,4"  # plugs 1 and 2 are being changed
-#        plug_id: "all"  # plugs 1 and 2 are being changed
-#        plug_name: "plugname2"
+        plug_id: "2"  # plug 2 are being changed
+        plug_name: "plugname2"
         plug_bootdelay: 1
         plug_default: 0
         plug_bootpriority: 99
@@ -30,4 +29,3 @@
     - name: dump test output
       debug:
         msg: "{{ testout }}"
-#        msg: "{{ testout['data.powerplugs'] }}"
