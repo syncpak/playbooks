@@ -19,6 +19,21 @@
                   use_https=use_https,
                   cpm_url=ansible_host,
                   cpm_username=ansible_user,
-                  cpm_password=ansible_pw)
+                  cpm_password=ansible_pw,
+                  wantlist=True)
 
-      register: var
+      register: var1
+
+      when:
+          - 1 == 1
+
+#    - debug: output_1=var.stdout_lines
+
+    - name: dump JSON output
+      debug:
+        msg: "{{ var1 }}"
+#        msg: "{{ var1['lookup('cpm_status', 'firmware', validate_certs=validate_certs, use_https=use_https, cpm_url=ansible_host, cpm_username=ansible_user, cpm_password=ansible_pw)'] }}"
+#      loop: “{{ var1.changed }}”
+
+#    - name: Goof Around
+#      when: version_outout.stdout.find('code') != -1
