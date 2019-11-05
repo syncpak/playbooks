@@ -5,9 +5,29 @@ All WTI Ansible playbooks use Ansible native modules to communicate with WTI dev
 The `cpm_username` you use to log into the WTI device must have the proper "Access Level" and also have Service Access "RESTful API Access" turned on in the WTI device itself.
 ***
 
+#### cpm_serial_ports
+Works with the WTI cpm_serial_ports module included in Ansible 2.9 (and above) to get/set serial port settings of WTI OOB and PDU devices. The `get` requires SuperUser "Access Level", while the `add` and `edit` require Administrator "Access Level"
+
+**port_info.yml:** Gets various user parameters defined to the `"port"` variable.
+
+**port_config.yml:** Modifies parameters of the defined `"port"` variable.
+
+#### cpm_plugcontrol
+Works with the WTI cpm_plugcontrol module included in Ansible 2.8 (and above) to get/control plugs of WTI PDU devices. The `get` requires SuperUser "Access Level", while the `set` require Administrator "Access Level"
+
+**plugget.yml:** Gets various real time plug state numbers defined to the `"plug_id"` variable.
+
+**plugset.yml:** Set the plug state of the defined `"plug_id"` variable.
+
+#### cpm_plugconfig
+Works with the WTI cpm_plugconfig module included in Ansible 2.8 (and above) to get/configure plugs of WTI PDU devices. The `get` requires SuperUser "Access Level", while the `set` require Administrator "Access Level"
+
+**plugget.yml:** Gets various plug parameters defined to the `"plug_id"` variable.
+
+**plugset.yml:** Set the plug state of the defined `"plug_id"` variable.
+
 #### cpm_status
 Works with the WTI cmp_status lookup plugin included in Ansible 2.7 (and above) to get various configuration/real-time operating statistics of WTI OOB and PDU devices.
-
 
 **getverlookup.yml:** Get the firmware version of the WTI device
 
@@ -36,5 +56,4 @@ Works with the WTI cmp_user module included in Ansible 2.7 (and above) to get/se
 **userdelete.yml:** Deletes the user `"user_name"` from the WTI device.
 
 ### NOTES
-cpm_plugconfig, cpm_plugcontrol, cpm_ports are currently in review and are not included with the release Ansible 2.7.x
-
+cpm_interface, cpm_time_date are currently in review and are not included with the release Ansible 2.9.x
